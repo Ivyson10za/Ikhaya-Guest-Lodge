@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <rect width="400" height="400" rx="40" fill="#fbf6ee"/>
+  <text x="200" y="70" text-anchor="middle" font-family="Georgia, serif" font-size="40" font-weight="bold" fill="#1f4d36" letter-spacing="6">IKHAYA</text>
+  <text x="200" y="102" text-anchor="middle" font-family="Georgia, serif" font-size="20" fill="#e07a3f" letter-spacing="8">GUEST LODGE</text>
+  <circle cx="200" cy="215" r="95" fill="#1f4d36"/>
+  <circle cx="200" cy="215" r="85" fill="none" stroke="#d9a441" stroke-width="3"/>
+  <path d="M120 215 A80 80 0 0 1 280 215 Z" fill="#e07a3f"/>
+  <g stroke="#d9a441" stroke-width="5" stroke-linecap="round">
+    <line x1="200" y1="140" x2="200" y2="155"/>
+    <line x1="150" y1="160" x2="160" y2="171"/>
+    <line x1="250" y1="160" x2="240" y2="171"/>
+  </g>
+  <path d="M135 245 L200 185 L265 245 L265 290 L135 290 Z" fill="#fbf6ee"/>
+  <path d="M125 247 L200 177 L275 247" fill="none" stroke="#fbf6ee" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M182 290 L182 252 A18 18 0 0 1 218 252 L218 290 Z" fill="#1f4d36"/>
+  <rect x="148" y="252" width="22" height="22" rx="3" fill="#e07a3f"/>
+  <rect x="230" y="252" width="22" height="22" rx="3" fill="#e07a3f"/>
+  <path d="M100 340 Q200 315 300 340" fill="none" stroke="#d9a441" stroke-width="4" stroke-linecap="round"/>
+  <text x="200" y="378" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#1f4d36" letter-spacing="3">EMPANGENI</text>
+</svg>
