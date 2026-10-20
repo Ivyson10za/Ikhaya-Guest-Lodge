@@ -86,6 +86,19 @@ background:linear-gradient(rgba(20,50,35,.65),rgba(20,50,35,.8)),url('images/lod
 .lightbox img{max-height:90vh;border-radius:12px}
 .lightbox span{position:absolute;top:18px;right:28px;color:#fff;font-size:2.6rem;cursor:pointer}
 
+/* BOOKING + MAP */
+.book{background:#fff}
+.form{max-width:760px;margin:40px auto 0;background:var(--cream);padding:32px;border-radius:22px;box-shadow:0 12px 35px rgba(31,77,54,.12);text-align:left;border-top:6px solid var(--orange)}
+.form .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form label{display:block;font-weight:500;font-size:.88rem;color:var(--green);margin:14px 0 6px}
+.form input,.form select,.form textarea{width:100%;padding:13px 14px;border:2px solid #dfe6e1;border-radius:12px;font:inherit;background:#fff;transition:.3s}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--orange)}
+.form button{width:100%;margin-top:22px;border:0;cursor:pointer;font:inherit;font-weight:600;font-size:1.05rem}
+.form .note{font-size:.8rem;color:#666;text-align:center;margin-top:10px}
+.map{margin-top:40px;border-radius:22px;overflow:hidden;box-shadow:0 12px 35px rgba(0,0,0,.2);border:5px solid var(--gold)}
+.map iframe{width:100%;height:420px;border:0;display:block}
+@media(max-width:600px){.form .row{grid-template-columns:1fr}.form{padding:22px}}
+
 /* CONTACT */
 .contact{background:linear-gradient(135deg,var(--green),var(--green2));color:#fff}
 .contact .title{color:#fff}
@@ -125,6 +138,7 @@ footer img{width:70px;margin:0 auto 10px;border-radius:14px}
    <li><a href="#about">About</a></li>
    <li><a href="#rooms">Rooms</a></li>
    <li><a href="#prices">Prices</a></li>
+   <li><a href="#book">Book</a></li>
    <li><a href="#gallery">Gallery</a></li>
    <li><a href="#contact">Contact</a></li>
   </ul>
@@ -137,7 +151,7 @@ footer img{width:70px;margin:0 auto 10px;border-radius:14px}
   <h1>Welcome to <span>Ikhaya</span><br>Guest Lodge</h1>
   <p>Your home away from home. Clean, secure and peaceful capsule rooms for a night, a rest or a few hours.</p>
   <div class="btns">
-   <a class="btn btn-main" href="https://wa.me/27768512452?text=Hi%20Ikhaya%20Guest%20Lodge%2C%20I%20would%20like%20to%20book%20a%20room." target="_blank">Book on WhatsApp</a>
+   <a class="btn btn-main" href="#book">Book Now</a>
    <a class="btn btn-line" href="#rooms">View Rooms</a>
   </div>
  </div>
@@ -212,10 +226,55 @@ footer img{width:70px;margin:0 auto 10px;border-radius:14px}
  </div>
 </section>
 
+<section class="book" id="book">
+ <div class="wrap center">
+  <span class="tag">Reserve now</span>
+  <h2 class="title">Booking Form</h2>
+  <p>Fill in your details and tap the button. It will open WhatsApp with your booking ready to send.</p>
+  <form class="form" id="bookForm">
+   <div class="row">
+    <div><label>Full Name</label><input type="text" id="bName" required placeholder="Your name"></div>
+    <div><label>Phone Number</label><input type="tel" id="bPhone" required placeholder="e.g. 076 000 0000"></div>
+   </div>
+   <div class="row">
+    <div><label>Room Type</label>
+     <select id="bRoom"><option>Single Capsule Room</option><option>Double Capsule Room</option></select></div>
+    <div><label>Type of Stay</label>
+     <select id="bStay">
+      <option>Overnight (R350, 3pm to 10am)</option>
+      <option>Day Rest (R250, 9am to 6pm)</option>
+      <option>Short Stay (R150, 3 hours)</option>
+     </select></div>
+   </div>
+   <div class="row">
+    <div><label>Date</label><input type="date" id="bDate" required></div>
+    <div><label>Arrival Time</label><input type="time" id="bTime" required></div>
+   </div>
+   <label>Extra Message (optional)</label>
+   <textarea id="bMsg" rows="3" placeholder="Anything we should know?"></textarea>
+   <button type="submit" class="btn btn-main">Send Booking on WhatsApp</button>
+   <p class="note">Your booking is confirmed once we reply on WhatsApp.</p>
+  </form>
+ </div>
+</section>
+
+<section id="map" style="padding-top:0;background:#fff">
+ <div class="wrap center">
+  <span class="tag">Directions</span>
+  <h2 class="title">Find Us</h2>
+  <p>Matshana, Empangeni, opposite Amangwe High School.</p>
+  <div class="map">
+   <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Ikhaya Guest Lodge location"
+    src="https://www.google.com/maps?q=Amangwe+High+School+Empangeni&output=embed"></iframe>
+  </div>
+  <p style="margin-top:20px"><a class="btn btn-main" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Amangwe+High+School+Empangeni">Open in Google Maps</a></p>
+ </div>
+</section>
+
 <section class="contact" id="contact">
  <div class="wrap center">
   <span class="tag" style="color:var(--gold)">Get in touch</span>
-  <h2 class="title">Book Your Stay</h2>
+  <h2 class="title">Contact Us</h2>
   <div class="contact-grid">
    <div class="card" style="text-align:left">
     <h3>📍 Find Us</h3>
@@ -254,6 +313,22 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg');
 document.querySelectorAll('.gallery img').forEach(i=>i.onclick=()=>{lbimg.src=i.src;lb.classList.add('on')});
 lb.onclick=()=>lb.classList.remove('on');
+
+const bd=document.getElementById('bDate');
+bd.min=new Date().toISOString().split('T')[0];
+document.getElementById('bookForm').addEventListener('submit',e=>{
+ e.preventDefault();
+ const g=id=>document.getElementById(id).value.trim();
+ const text=`Hello Ikhaya Guest Lodge, I would like to book:%0A`
+ +`*Name:* ${encodeURIComponent(g('bName'))}%0A`
+ +`*Phone:* ${encodeURIComponent(g('bPhone'))}%0A`
+ +`*Room:* ${encodeURIComponent(g('bRoom'))}%0A`
+ +`*Stay:* ${encodeURIComponent(g('bStay'))}%0A`
+ +`*Date:* ${encodeURIComponent(g('bDate'))}%0A`
+ +`*Arrival time:* ${encodeURIComponent(g('bTime'))}%0A`
+ +(g('bMsg')?`*Message:* ${encodeURIComponent(g('bMsg'))}`:'');
+ window.open('https://wa.me/27768512452?text='+text,'_blank');
+});
 </script>
 </body>
-  </html>
+</html>
